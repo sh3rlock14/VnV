@@ -1,0 +1,23 @@
+function [eigenvectors, eigenvalues] = myEig(A)
+%EIGENSTUFF computes eigenvalues and eigenvectors for A
+
+[vectors, eigenvalues] = eig(A,'vector');
+eigenvectors = vectors;
+
+%A è quadrata, mi basta una sua dimensione
+n = size(A,1);
+
+%verifico che abbia n autovalori (contati con le
+% molteplicità algebriche)
+nEigVal = length(eigenvalues);
+if (nEigVal < n)
+    warning('Cannot diagonalise A. Returning partial eigenvalues and corresponding eigenvectors');
+
+
+%calcolo il numero di autovalori distinti
+% se sono proprio n -> A è diagonalizzabile
+un = length(unique(eigenvalues));
+
+
+
+end
