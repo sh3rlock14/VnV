@@ -22,4 +22,15 @@ end
 eigenvectors = vectors*spdiag(1./sqrt(sum(vectors.^2, 1)));
 eigenvectors = eigenvectors./eigenvectors(1,:);
 
+
+L = eigenvectors;
+A_tilde = diag(eigenvalues);
+zero = A - L*A_tilde/L;
+if (~sum(zero,'all'))
+    disp("La matrice L è:");
+    disp(L);
+    disp("La matrice A_tilde è:");
+    disp(A_tilde);
+end
+
 end
