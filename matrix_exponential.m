@@ -4,7 +4,8 @@ function [eAt, eAt_tilde] = matrix_exponential(A)
 
 n = length(A(:,:));
 syms 't'
-[vectors, values] = eigenstuff(A);
+%[vectors, values] = eigenstuff(A);
+[vectors, values] = myEig(A);
 
 if n == 2 && A(1,1) == A(2,2) && A(1,2) == -A(2,1) %if [[l w]; [-w l]]
     l = A(1,1);

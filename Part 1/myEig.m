@@ -16,11 +16,20 @@ if (nEigVal < n || rank(vectors)<n) %la matrice non è diagonalizzabile
     %return
 end
 
+
+
+    
+    
+
 %calcolo il numero di autovalori distinti se sono proprio n -> A è diagonalizzabile
 % a questo punto non dovrebbe più serivire: A è diagonalizzabile
 %un = length(unique(eigenvalues));
 eigenvectors = vectors*spdiag(1./sqrt(sum(vectors.^2, 1)));
 eigenvectors = eigenvectors./eigenvectors(1,:);
+
+if (isdiag(A))  %non ho bisogno di trovare A_tilde
+    return
+end
 
 
 L = eigenvectors;
